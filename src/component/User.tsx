@@ -45,7 +45,7 @@ const User: React.FC = () => {
 
       <div className="body">
         {employeeList && employeeList?.length === 0 && (
-          <div className="'notFound">No User Found! Please try again!</div>
+          <div className="'notFound">No Employee Found! Please try again!</div>
         )}
         <table className="table table-bordered">
           <tbody>
