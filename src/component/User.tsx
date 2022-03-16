@@ -20,7 +20,9 @@ const User: React.FC = () => {
   return (
     <div className="title">
       <Navbar bg="danger fixed-top" variant="dark">
-        <Navbar.Brand>Employee Search</Navbar.Brand>
+        <Navbar.Brand className="text-center m-2 p-2">
+          Employee Search
+        </Navbar.Brand>
       </Navbar>
       <div className="input-wrapper">
         <input
@@ -33,38 +35,39 @@ const User: React.FC = () => {
           }}
         />
         <button
-          className="btn btn-outline-danger"
+          className="btn btn-outline-danger m-2 p-2"
           disabled={!text}
           onClick={handleOnClick}
         >
           Search
         </button>
-        <div className="body">
-          {employeeList && employeeList?.length === 0 && (
-            <div className="'notFound">No User Found! Please try again!</div>
-          )}
-          <table className="table table-bordered">
-            <tbody>
-              {employeeList &&
-                employeeList?.length > 0 &&
-                employeeList?.map((user) => {
-                  return (
-                    <tr key={user.id}>
-                      <td>
-                        <p>Name: {user?.name}</p>
-                      </td>
-                      <td>
-                        <p>Id: {user?.id}</p>
-                      </td>
-                      <td>
-                        <p>Title: {user?.title}</p>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </div>
+      </div>
+
+      <div className="body">
+        {employeeList && employeeList?.length === 0 && (
+          <div className="'notFound">No User Found! Please try again!</div>
+        )}
+        <table className="table table-bordered">
+          <tbody>
+            {employeeList &&
+              employeeList?.length > 0 &&
+              employeeList?.map((user) => {
+                return (
+                  <tr key={user.id}>
+                    <td>
+                      <p>name: {user?.name}</p>
+                    </td>
+                    <td>
+                      <p>id: {user?.id}</p>
+                    </td>
+                    <td>
+                      <p>title: {user?.title}</p>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

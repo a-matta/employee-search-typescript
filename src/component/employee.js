@@ -6,17 +6,17 @@ export const employee = [
   },
   {
     id: 2,
-    title: "lead accountant,",
+    title: "Lead accountant",
     name: "Alexander",
   },
   {
     id: 3,
-    title: "chief",
+    title: "Chief",
     name: "Bruce",
   },
   {
     id: 4,
-    title: "supervisor",
+    title: "Supervisor",
     name: "David",
   },
 ];
