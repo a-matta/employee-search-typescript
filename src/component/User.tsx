@@ -19,7 +19,7 @@ const User: React.FC = () => {
   };
   return (
     <div className="title">
-      <Navbar bg="danger fixed-top " variant="dark">
+      <Navbar bg="danger fixed-top" variant="dark">
         <Navbar.Brand>Employee Search</Navbar.Brand>
       </Navbar>
       <div className="input-wrapper">
@@ -43,14 +43,25 @@ const User: React.FC = () => {
           {employeeList && employeeList?.length === 0 && (
             <div className="'notFound">No User Found! Please try again!</div>
           )}
+
           {employeeList &&
             employeeList?.length > 0 &&
             employeeList?.map((user) => {
               return (
                 <div className="body_item" key={user.id}>
-                  <h3>Name: {user?.name}</h3>
-                  <p>Id: {user?.id}</p>
-                  <p>Title: {user?.title}</p>
+                  <table class="table table-bordered">
+                    <thead>
+                      <th>
+                        <p>Name: {user?.name}</p>
+                      </th>
+                      <th>
+                        <p>Id: {user?.id}</p>
+                      </th>
+                      <th>
+                        <p>Title: {user?.title}</p>
+                      </th>
+                    </thead>
+                  </table>
                 </div>
               );
             })}
