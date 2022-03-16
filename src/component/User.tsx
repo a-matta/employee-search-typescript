@@ -4,9 +4,19 @@ import "bootstrap/dist/css/bootstrap.css";
 import { employee } from "../component/employee.js";
 
 const User: React.FC = () => {
-  const [employeeList, setEmployeeList] = React.useState(employee);
-
+  const [employeeList, setEmployeeList] = React.useState<
+    { id: number; name: string; title: string }[] | undefined
+  >(employee);
   const [text, setText] = React.useState("");
+
+  const handleOnClick = () => {
+    const findEmployees =
+      employeeList && employeeList?.length > 0
+        ? employeeList.filter((emp) => emp?.name === text)
+        : undefined;
+    console.log(findEmployees);
+    setEmployeeList(findEmployees);
+  };
   return (
     <div className="title">
       <Navbar bg="danger" variant="dark">
@@ -17,12 +27,21 @@ const User: React.FC = () => {
           type="text"
           placeholder="Search User"
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => {
+            setText(e.target.value);
+            setEmployeeList(employee);
+          }}
         />
-        <button>Search</button>
+        <button disabled={!text} onClick={handleOnClick}>
+          Search
+        </button>
         <div className="body">
-          {employee?.length > 0 &&
-            employee?.map((user) => {
+          {employeeList && employeeList?.length === 0 && (
+            <div className="'notFound">No User Found</div>
+          )}
+          {employeeList &&
+            employeeList?.length > 0 &&
+            employeeList?.map((user) => {
               return (
                 <div className="body_item">
                   <h3>Name: {user?.name}</h3>
