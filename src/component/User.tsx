@@ -43,28 +43,27 @@ const User: React.FC = () => {
           {employeeList && employeeList?.length === 0 && (
             <div className="'notFound">No User Found! Please try again!</div>
           )}
-
-          {employeeList &&
-            employeeList?.length > 0 &&
-            employeeList?.map((user) => {
-              return (
-                <div className="body_item" key={user.id}>
-                  <table class="table table-bordered">
-                    <thead>
-                      <th>
+          <table className="table table-bordered">
+            <tbody>
+              {employeeList &&
+                employeeList?.length > 0 &&
+                employeeList?.map((user) => {
+                  return (
+                    <tr key={user.id}>
+                      <td>
                         <p>Name: {user?.name}</p>
-                      </th>
-                      <th>
+                      </td>
+                      <td>
                         <p>Id: {user?.id}</p>
-                      </th>
-                      <th>
+                      </td>
+                      <td>
                         <p>Title: {user?.title}</p>
-                      </th>
-                    </thead>
-                  </table>
-                </div>
-              );
-            })}
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
