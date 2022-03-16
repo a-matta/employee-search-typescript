@@ -19,7 +19,7 @@ const User: React.FC = () => {
   };
   return (
     <div className="title">
-      <Navbar bg="danger" variant="dark">
+      <Navbar bg="danger fixed-top " variant="dark">
         <Navbar.Brand>Employee Search</Navbar.Brand>
       </Navbar>
       <div className="input-wrapper">
@@ -32,7 +32,11 @@ const User: React.FC = () => {
             setEmployeeList(employee);
           }}
         />
-        <button disabled={!text} onClick={handleOnClick}>
+        <button
+          className="btn btn-outline-danger"
+          disabled={!text}
+          onClick={handleOnClick}
+        >
           Search
         </button>
         <div className="body">
