@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import { employee } from "../../component/employee";
+import { employee } from "../component/employee.js";
 
 const User: React.FC = () => {
   const [employeeList, setEmployeeList] = React.useState(employee);
@@ -25,7 +25,9 @@ const User: React.FC = () => {
             employee?.map((user) => {
               return (
                 <div className="body_item">
-                  <h3>Name: user?.name</h3>
+                  <h3>Name: {user?.name}</h3>
+                  <p>Id: {user?.id}</p>
+                  <p>Title: {user?.title}</p>
                 </div>
               );
             })}
