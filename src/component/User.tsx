@@ -20,7 +20,7 @@ const User: React.FC = () => {
   return (
     <div className="title">
       <Navbar bg="danger" variant="dark">
-        <Navbar.Brand>User Find</Navbar.Brand>
+        <Navbar.Brand>Employee Search</Navbar.Brand>
       </Navbar>
       <div className="input-wrapper">
         <input
@@ -37,13 +37,13 @@ const User: React.FC = () => {
         </button>
         <div className="body">
           {employeeList && employeeList?.length === 0 && (
-            <div className="'notFound">No User Found</div>
+            <div className="'notFound">No User Found! Please try again!</div>
           )}
           {employeeList &&
             employeeList?.length > 0 &&
             employeeList?.map((user) => {
               return (
-                <div className="body_item">
+                <div className="body_item" key={user.id}>
                   <h3>Name: {user?.name}</h3>
                   <p>Id: {user?.id}</p>
                   <p>Title: {user?.title}</p>
